@@ -126,7 +126,7 @@ sub makeEntry {
 	}
 
 	# If google page speed api didnt work
-	if($n == 0){ return {'downloaded'=>$download,'url'=>$url}; }
+	if($n == 0){ return {'downloaded'=>$download,'url'=>$url, 'json'=>$json}; }
 
 	$results{'pagespeedapi'} = $json;
 

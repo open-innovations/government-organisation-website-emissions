@@ -78,7 +78,7 @@
 				for(y = min; y <= max; y+=gap) ylabels[y] = {'label':(prec > 0 ? y.toPrecision(prec) : y)};
 
 				// Build x-axis labels
-				monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+				monthNames = ["Jan", "", "", "Apr", "", "", "Jul", "", "", "Oct", "", ""];
 				for(d = sdate; d <= edate; d.setDate(d.getDate() + 1)){
 					smonth = (new Date(d.getFullYear(),d.getMonth(),1)).getTime();
 					m = d.getMonth();

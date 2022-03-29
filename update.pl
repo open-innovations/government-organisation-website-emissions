@@ -88,6 +88,8 @@ sub processOrgs {
 					print "\tsleeping for $delay seconds...\n";
 					sleep $delay;
 				}
+			}else{
+				print "WARNING: $ids[$i] is not active.\n";
 			}
 		}
 	}
@@ -132,12 +134,13 @@ sub processOrg {
 			}else{
 				print "$id:\n";
 				print "\tNo CO2 data\n";
+				print Dumper $entry;
 			}
 			if($entry->{'downloaded'}){
 				$dl = 1;
 			}
 		}
-		print "$days = $recent $today = $ago\n";
+		#print "$days = $recent $today = $ago\n";
 
 		# Get the lighthouse details
 		$details = getDetails($url);
@@ -149,7 +152,7 @@ sub processOrg {
 			binmode $handle;
 			print $handle $image_decoded;
 			close ($handle);
-			print "Processing image $id\n";
+			print "\tProcessing image $id\n";
 			`convert $config{'Directory'}$id.jpg -quality 60 -define webp:lossless=true $config{'Directory'}$id.webp`;
 			`rm $config{'Directory'}$id.jpg`;
 		}
